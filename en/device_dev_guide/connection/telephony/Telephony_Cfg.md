@@ -4,7 +4,7 @@
 
 The Telephony service involves many modules. Below are the detailed descriptions of the related configurations.
 
-## 1. DBUS Configuration
+## I. DBUS Configuration
 
 The following are the related configuration items for DBUS:
 
@@ -18,7 +18,7 @@ CONFIG_LIBC_MAX_EXITFUNS=4
 CONFIG_NET_LOCAL_SCM=y
 ```
 
-## 2. GLIB Configuration
+## II. GLIB Configuration
 
 The following are the related configuration items for GLIB:
 
@@ -26,7 +26,7 @@ The following are the related configuration items for GLIB:
 CONFIG_LIB_GLIB=y
 ```
 
-## 3. oFono Configuration
+## III. oFono Configuration
 
 The following are the related configuration items for oFono:
 
@@ -40,7 +40,7 @@ CONFIG_SIGNAL_FD=y
 CONFIG_LIBC_DLFCN=y  
 ```
 
-## 4. GDBUS Configuration
+## IV. GDBUS Configuration
 
 The following are the related configuration items for GDBUS:
 
@@ -49,7 +49,7 @@ CONFIG_LIB_DBUS=y
 CONFIG_ALLOW_BSD_COMPONENTS=y
 ```
 
-## 5. Telephony API Configuration
+## V. Telephony API Configuration
 
 The following are the related configuration items for Telephony API:
 
@@ -61,6 +61,6 @@ CONFIG_TELEPHONY=y
 CONFIG_TELEPHONY_TOOL=y
 ```
 
-## 6. Notes
+## VI. Notes
 
 To enable openvela to support cellular communication capabilities, in addition to the above Telephony configurations, the corresponding modem configurations must also be enabled based on the specific product platform.

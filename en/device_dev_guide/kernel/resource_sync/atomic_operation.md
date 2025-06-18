@@ -2,16 +2,16 @@
 
 \[ English | [简体中文](../../../../zh-cn/device_dev_guide/kernel/resource_sync/atomic_operation.md) \]
 
-## 1. Overview
+## I. Overview
 
 The prebuilts toolchain in openvela supports inline atomic operation interfaces, which are defined in the `stdatomic.h` header file.
 
-### 1、File Path
+### 1. File Path
 
 Taking the ARM architecture as an example, the file path for `stdatomic.h` is as follows:
 
 ```Shell
-# 以 arm 架构为例
+# Take the arm architecture as an example
 prebuilts/gcc/linux/arm/arm-none-eabi/include/stdatomic.h
 ```
 
@@ -44,7 +44,7 @@ In the `Make.defs` file, the compilation rule for `arch_atomic.c` is as follows:
 CSRCS += arch_atomic.c
 ```
 
-## 2. Included Header Files
+## II. Included Header Files
 
 When using atomic operations in the code, include the following header file:
 
@@ -52,7 +52,7 @@ When using atomic operations in the code, include the following header file:
 #include <stdatomic.h>
 ```
 
-## 3. Atomic Variable Types
+## III. Atomic Variable Types
 
 Atomic variables support the following types, referred to as `atomic_type` in subsequent documentation:
 
@@ -95,7 +95,7 @@ atomic_intmax_t
 atomic_uintmax_t
 ```
 
-## 4. Atomic Operation Interfaces
+## IV. Atomic Operation Interfaces
 
 Atomic operation interfaces provide a set of thread-safe operations for initializing, reading, modifying, and comparing atomic variables. Below is a detailed description of the interfaces.
 
@@ -150,7 +150,7 @@ atomic_type atomic_fetch_or(atomic_type *object, atomic_type desired);
 atomic_type atomic_fetch_and(atomic_type *object, atomic_type desired);
 ```
 
-## 5. Internal Implementation in Vela
+## V. Internal Implementation in Vela
 o avoid inconsistencies in atomic interface support across different toolchains, Vela provides a set of system-level implementations. When the toolchain does not support atomic operations, Vela's implementation of Atomic will be used as a substitute.
 For complete details, refer to the file [arch_atomic.c](https://github.com/open-vela/nuttx/blob/dev/libs/libc/machine/arch_atomic.c)
 Vela’s internal implementation mainly uses spinlocks to simulate atomic operations. It decomposes operations such as load, store, exchange, and CAS into different macros. For example, atomic_store, which has the following function prototype:
@@ -308,6 +308,6 @@ atomic test complete!        // Test Passed
 ```
 
 The test results indicate that all atomic operations were executed correctly and the verification was successful.
-## 6. References
+## VI. References
 
-- [GCC 官方文档：atomic Builtins](https://gcc.gnu.org/onlinedocs/gcc-12.3.0/gcc/_005f_005fatomic-Builtins.html)
+- [GCC Official Documentation：atomic Builtins](https://gcc.gnu.org/onlinedocs/gcc-12.3.0/gcc/_005f_005fatomic-Builtins.html)
